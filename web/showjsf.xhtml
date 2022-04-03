@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Department Show
+        <h:form>
+            <h:dataTable value="#{departmentBean.Show()}" var="dept" border="2">
+                <th>
+                    <h:column>
+                        <f:facet name="header">Dept No</f:facet>
+                            #{dept.deptid}
+                    </h:column>
+                </th>
+                <th>
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                            #{dept.deptname}
+                    </h:column>
+                </th>
+                <th>
+                    <h:column> 
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandButton value="delete" action="#{departmentBean.deptDelete(dept.deptid)}"></h:commandButton>
+                        <h:commandButton id="btn_edit" value="Edit" action="#{departmentBean.search_click(dept.deptid)}"></h:commandButton>
+                    </h:column>  
+                </th>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
